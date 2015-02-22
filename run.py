@@ -7,5 +7,12 @@ app.debug = True
 def index():
     return "hello world"
 
+@app.route('/echo', methods=['GET', 'POST'])
+def echo():
+    if request.method == 'POST':
+        return request.data
+    else:
+        return 'you did a GET'
+
 if __name__ == '__main__':
     app.run()
